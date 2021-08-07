@@ -3,6 +3,7 @@ package co.urbanraw.materialdesignsample;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.textservice.TextInfo;
@@ -37,12 +38,13 @@ public class MainActivity extends Activity {
         });
 
 
-
-
     }
 
         public void btn_click(View v)
         {
+            Intent intent = new Intent(this,HomeActivity.class);
+            startActivity(intent);
+
             Toast.makeText(MainActivity.this, "Button Clicked!!", Toast.LENGTH_SHORT).show();
         }
 
