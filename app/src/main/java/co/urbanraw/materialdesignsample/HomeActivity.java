@@ -6,11 +6,15 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class HomeActivity extends AppCompatActivity {
+
+    AutoCompleteTextView editTextFilledExposedDropdown;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,12 +27,23 @@ public class HomeActivity extends AppCompatActivity {
         assert getSupportActionBar() != null;   //null check
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);   //show back button
 
+
+        // Populting the dropdwon or Spinner
+        String[] type = new String[] {"Bed-sitter", "Single", "1- Bedroom", "2- Bedroom","3- Bedroom"};
+
+        ArrayAdapter<String> adapter = new ArrayAdapter<>( this, R.layout.dropdown_menu_popup_item, type);
+
+         editTextFilledExposedDropdown = findViewById(R.id.filled_exposed_dropdown);
+        editTextFilledExposedDropdown.setAdapter(adapter);
+        //End  Populting the dropdwon or Spinner
+
+
     }
 
 
     public void btn_fab_click(View v)
     {
-        Toast.makeText(HomeActivity.this, "Fab Clicked!", Toast.LENGTH_SHORT).show();
+        Toast.makeText(HomeActivity.this,  editTextFilledExposedDropdown.getText(), Toast.LENGTH_SHORT).show();
     }
 
     @Override
