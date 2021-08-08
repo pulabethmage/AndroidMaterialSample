@@ -3,6 +3,7 @@ package co.urbanraw.materialdesignsample;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -44,6 +45,8 @@ public class HomeActivity extends AppCompatActivity {
     public void btn_fab_click(View v)
     {
         Toast.makeText(HomeActivity.this,  editTextFilledExposedDropdown.getText(), Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(HomeActivity.this,BottomAppbarActivity.class);
+        startActivity(intent);
     }
 
     @Override
